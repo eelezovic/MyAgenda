@@ -1,0 +1,511 @@
+
+
+* {
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:Times, serif;
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 8vh;
+    line-height: 65px;
+    padding:0px 100px;
+    position:relative;
+    background-image: linear-gradient(to bottom right, #2c3864, #62adf0);
+}
+
+nav .logo{
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    color: rgb(255, 248, 148);
+    text-shadow: -1.5px 0 rgb(0, 0, 135), 0 1px grey, 1px 0 grey, 0 -1.5px grey;
+    font-family:  Chalkduster, fantasy; 
+}
+
+nav ul li { 
+    display: inline-block;
+    list-style: none;
+}
+nav ul li a {
+    color: #eeeff4;
+    text-decoration: none;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 0px 32px;
+}
+nav ul li a:hover {
+    color: #021034;
+}
+
+.month {
+    display: flex;
+    width:100%;
+    font-size: 0.8rem;
+    color: #475169;
+    background:  #f3f3ed;
+    height: 11vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.header-date {
+    font-size: 2.5rem;
+    display: flex;
+}
+
+.next {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.prev {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.next:hover {
+    color: #2f99e9;
+}
+
+.prev:hover {
+    color: #2f99e9;
+}
+
+.today-date {
+    height: 30px;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    padding-bottom: 20px;
+    text-transform: capitalize;
+    background:  #f3f3ed;
+    color: #677697;
+}
+
+.today-date .event-day {
+    font-size: 2rem;
+    font-weight: 500;
+    font-weight: 500;
+    padding-right: 20px;
+}
+
+.today-date .event-date {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-top: 5px;
+}
+
+.calendar {
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(to bottom , #f3f3ed, #dfdac9);
+}
+
+.calendar-table{
+    display: flex;
+    background-color: #FFFFE8;
+    border: 1px solid white;
+    height: 70vh;
+    width: 40rem;
+    display: grid; 
+    margin-bottom: 70px;
+    margin-right: 5px;
+    margin-left: 2%;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
+}
+
+.weekdays {
+    background: linear-gradient(to bottom, #1d2645, #59a9ef);
+    border-bottom: 1px solid #99c4c4;
+    box-shadow: inset 0 -3px 0 0 #789da2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;  
+    align-items: center;
+    color: #ffffff;
+    padding: 10px 30px;
+    font-size: 1.3rem;
+    font-family: Monaco, monospace;
+}
+
+.weekdays div {
+    width: 11.28%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0 0.3rem 0.5rem rgb(0,0,0 0.5);
+}
+
+
+.days {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 20px;
+    font-size: 1.2rem;
+    margin: 20px 0;
+    font-weight: 500;
+    transition: all 600ms;
+
+}
+
+.day {
+    width: 13.28%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #3C6255;
+}
+
+.prev-date {
+    color: #a4c5c8;
+}
+
+.next-date {
+    color: #a4c5c8;
+}
+
+.days .active {
+    position: relative;
+    font-size: 1.3rem;
+    color: white;
+    background-color:#FAAB78;
+}
+
+
+.days .today {
+    font-size: 1.4rem;
+    color:#031f29;
+    background-color: #a6d9e9;
+}
+
+.days .event {
+    background-color: #e4dce9;
+    position: relative;
+} 
+
+ /*Select Date */
+.goto-today {
+    height: 35px;
+    display: flex;
+    gap: 5px;
+    padding: 5px 5px;
+    color: #395B64;
+    bottom: 40px;
+    justify-content: space-between;
+}
+
+.goto-today .goto {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid #2C3333;
+}
+
+.goto-today .goto input{
+    width: 100%;
+    height: 30px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 0 20px;
+    color: #2C3333;
+    border-radius: 5px;
+}
+
+.goto-today button {
+    padding: 3px 15px;
+    border: 1px solid #2C3333;
+    border-radius: 5px;
+    background-color: transparent;
+    cursor: pointer;
+    color:#395B64;
+    justify-content: center;
+}
+
+.goto-today button:hover {
+    color: #fff;
+    background-color: #688e9e;
+}
+
+.goto-today .goto button {
+    border: none;
+    border-left: 1px solid #687171;
+    border-radius: 0;
+}
+
+.event-container {
+    display: flex;
+    justify-content: center;
+    background: #FFFFE8;
+}
+
+.events { 
+   width: auto;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    align-items: center;
+    background: #d3eafe;
+    border-radius: 7px;
+    border: 1px solid #bccbaa;
+}
+
+.events .event {
+    color: white;
+    cursor: pointer;
+    background-color: #d3eafe;
+    display: flex;
+    padding: 15px;
+    flex-direction: column;
+}
+
+.events .event .title {
+    pointer-events: none;
+}
+
+.events .event .title .event-title {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color:  rgb(47, 51, 94);
+}
+
+.events .event:hover .title i {
+    color: #373c4f;
+}
+
+.events .event .title i {
+    color: rgb(255, 255, 255);
+}
+
+.event-desc {
+    display: flex;
+    justify-content: space-between;
+    color: grey;
+    font-size: 1.2rem;
+}
+
+.events .event .event-time {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #227793;
+    pointer-events: none;
+    padding: 10px;
+    justify-content: center;
+}
+
+.events .no-event {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: rgb(62, 66, 110);
+    padding: 5px;
+}
+
+.container-right {
+    position:absolute;
+    z-index: 99;
+    display: flex;
+    gap: 5px;
+    display:flex;
+    margin-top: 70px;
+}
+
+
+.add-event-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    max-height: 0;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 4px 4px 2px #013c4e;
+    margin: auto;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
+}
+
+.add-event-wrapper.active {
+    max-height: 150vh;
+}
+
+.add-event-header {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-left: 15px;
+    color: whitesmoke;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.add-event-header .close {
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: whitesmoke;
+}
+
+.add-event-header .close:hover {
+    color: #2C3333;
+}
+
+.add-event-header .title {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.add-event-body {
+    display:flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px;
+}
+
+.add-event-body .add-event-input {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap:3px;
+}
+
+.add-event-body .add-event-input input {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #f5f5f5;
+    padding: 0 10px;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #373c4f;
+}
+
+.add-event-body .add-event-input input::placeholder {
+    color: #97a9ae;
+}
+
+.add-event-body .add-event-input input:focus {
+    border-color: rgb(148, 80, 181);
+}
+
+.add-event-body .add-event-input input:focus::placeholder {
+    color: rgb(34, 76, 94);
+}
+
+.add-event-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.add-event-btn {
+    height:30px;
+    font-size: 1rem;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    color: #25586e;
+    background-color: linear-gradient(135deg, #8d8dd4, #45ced4);
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid #77532f;
+
+}
+
+.add-event-btn:hover {
+    color: #ffffff;
+    background-color: transparent;
+}
+
+.add-event {
+    border-radius: 50%; 
+    width: 35px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color:rgb(255, 0, 0);
+    border: 2px solid #878895;
+    opacity: 0.6;
+    background-color: transparent;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.add-event:hover {
+    opacity: 1;
+}
+
+.add-event i {
+    pointer-events: none;
+}
+
+.add-event-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    margin-left: auto;
+    font-weight: bold;
+    
+}
+
+.active {
+    background-color: #a6c3cc;
+
+}
+
+.active .event {
+    padding-bottom: 10px;
+}
+
+.date-selector {
+    display: flex;
+    align-items: center;
+    bottom: 100px;
+    top: 30px;
+    width: 15%;
+}
+
+.today {
+    background-color: rgb(187, 228, 236);
+    color: grey;
+}
+
+.footer{
+    background: #2c3864;
+    color: #EAE7B1;
+    display: flex;
+    width: 100%;
+    height: 5vh;
+    justify-content: center;
+    align-items: center;
+}
