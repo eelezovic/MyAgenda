@@ -535,7 +535,7 @@ if (
 
    // Store events in local storage 
    function saveEvents() {
-    localStorage.setItem("events", JSON.stringify(eventsArr));
+    localStorage.setItem("events",JSON.stringify(eventsArr));
    }
 
   function getEvents() {
